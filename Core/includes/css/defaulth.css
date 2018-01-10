@@ -1,0 +1,67 @@
+/* 
+    Document   : Defaulth
+    Created on : 27/10/2012, 03:06:13 PM
+    Author     : CESAR
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+ input {
+
+border: 1px solid #D4D4D4;
+
+padding: 5px;
+
+font-family: Verdana, Arial, Helvetica, sans-serif;
+
+font-size: 11px; color: #666;
+
+}
+
+
+
+select{
+
+padding: 5px;
+
+font-family: Verdana, Arial, Helvetica, sans-serif;
+
+font-size: 12px; color: #666;
+
+border: 1px solid #D4D4D4;
+
+}
+
+
+
+textarea {
+
+padding: 5px;
+
+border: 1px solid #D4D4D4;
+
+font-family: Verdana, Arial, Helvetica, sans-serif;
+
+font-size: 11px; color: #666;
+
+width:100%;
+
+}
+
+legend {
+
+  padding: 0.2em 0.5em;
+
+  border:1px solid gray;
+
+  color:#7a9833;
+
+  font-size:90%;
+
+  text-align:right;
+
+  }

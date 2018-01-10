@@ -1,0 +1,2 @@
+<app-login *ngIf="!isLogged" (logIn)="onLogIn($event)"></app-login>
+<app-titan *ngIf="isLogged" (logOut)="onLogOut($event)"></app-titan>

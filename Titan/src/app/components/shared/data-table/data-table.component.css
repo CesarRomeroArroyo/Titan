@@ -1,0 +1,11 @@
+.paginatorContainer{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.pageLeft{
+    margin-right: 10px;;
+}
+.pageRight{
+    margin-left: 10px;;
+}

@@ -1,0 +1,9 @@
+﻿label.error {
+    display: block;
+    position:absolute; 
+    padding-left:0px;
+    font: 10px Verdana, Arial, Helvetica, sans-serif;        
+    color:red; 
+}
+
+input.error { border: 2px solid red; }
