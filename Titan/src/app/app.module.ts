@@ -5,7 +5,9 @@ import { AppSettings } from './app.settings';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 import { LoginService } from './services/shared/login.service';
 import { CatchInterceptorService } from './services/shared/http-interceptor.service';
@@ -23,8 +25,7 @@ import { TipoDocumentoComponent } from './components/tablas-generales/tipo-docum
 import { DynamicComponent } from './components/shared/dynamic/dynamic.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { DataTableComponent } from './components/shared/data-table/data-table.component';
-
-
+import { ModalTipoDocumentoComponent } from './components/tablas-generales/tipo-documento/modal-tipo-documento/modal-tipo-documento.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +38,15 @@ import { DataTableComponent } from './components/shared/data-table/data-table.co
     TipoDocumentoComponent,
     DynamicComponent,
     InicioComponent,
-    DataTableComponent
+    DataTableComponent,
+    ModalTipoDocumentoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    ModalModule.forRoot()
   ],
   entryComponents: [
     InicioComponent,
@@ -54,6 +57,7 @@ import { DataTableComponent } from './components/shared/data-table/data-table.co
     LoginService,
     SessionStorageService,
     MenuService,
+    BsModalService,
     TipoDocumentoService,
     {
       provide: HTTP_INTERCEPTORS,

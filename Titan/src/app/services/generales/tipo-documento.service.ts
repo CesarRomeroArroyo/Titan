@@ -9,6 +9,6 @@ export class TipoDocumentoService {
   constructor(private appSettings: AppSettings, private http: HttpClient) { }
 
   getTipoDocumento(): Observable<any>  {
-    return this.http.get(`${this.appSettings.endPointTitan}buscarTipoDocumentos/`);
+     return this.http.get(`${this.appSettings.endPointTitan}buscarTipoDocumentos/`);
   }
 }

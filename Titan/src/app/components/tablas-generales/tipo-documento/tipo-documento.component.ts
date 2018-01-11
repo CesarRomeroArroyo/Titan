@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TipoDocumentoService } from '../../../services/generales/tipo-documento.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
 
 @Component({
   selector: 'app-tipo-documento',
@@ -7,15 +10,16 @@ import { TipoDocumentoService } from '../../../services/generales/tipo-documento
   styleUrls: ['./tipo-documento.component.css']
 })
 export class TipoDocumentoComponent implements OnInit {
+  dataTipoDoc: any = {comportamiento: '', convertir: '', descrip: '', formato_imp: '', id: '', id_bodega: '', n_actual: '', n_final: '', n_inicial: '', notas: '', prefijo: ''};
+  modalRef: BsModalRef;
   tipoDocumentos: any;
   columns: Array<any> ;
-  constructor(private _tipoDocumentoService: TipoDocumentoService) { }
+  constructor(private _tipoDocumentoService: TipoDocumentoService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this._tipoDocumentoService.getTipoDocumento().subscribe(
       result => {
-        console.log(result);
-        /*this.columns = [
+        this.columns = [
           {title: 'Id', name: 'id'},
           {title: 'Nombre', name: 'descrip'},
           {title: 'Prefijo', name: 'prefijo'},
@@ -23,7 +27,7 @@ export class TipoDocumentoComponent implements OnInit {
           {title: 'Num. Inicial', name: 'n_inicial'},
           {title: 'Num.  Final', name: 'n_final'}
         ];
-        this.tipoDocumentos = result;*/
+        this.tipoDocumentos = result;
       },
       error => {
           console.log(<any>error);
@@ -31,4 +35,14 @@ export class TipoDocumentoComponent implements OnInit {
     );
   }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+  onCreate() {
+    this.dataTipoDoc = {comportamiento: '', convertir: '', descrip: '', formato_imp: '', id: '', id_bodega: '', n_actual: '', n_final: '', n_inicial: '', notas: '', prefijo: ''};
+  }
+
+  onEdit(data: any) {
+    this.dataTipoDoc = data;
+  }
 }
