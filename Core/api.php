@@ -812,7 +812,7 @@ if(middlewareSecurity()==true){
             if(preg_match("/buscarTerceros\//", $resource, $matches)){
                 $datos[0]="*";
 		$donde='1=1';
-		echo $sql=consulta::seleccionar($datos,"general_third", $donde);
+		$sql=consulta::seleccionar($datos,"general_third", $donde);
 		$provedores = consulta::convertir_a_array(consulta::ejecutar_consulta($sql));
 		echo json_encode($provedores);
             }
