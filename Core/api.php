@@ -1,6 +1,9 @@
-<?php header('Access-Control-Allow-Origin: *'); 
+<?php header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require_once 'includes/includes.php';
-cors();
+//cors();
 $method = $_SERVER['REQUEST_METHOD'];
 $resource = $_SERVER['REQUEST_URI'];
 
@@ -2665,7 +2668,10 @@ if(middlewareSecurity()==true){
             }
             if(preg_match("/agregarBanco\//", $resource, $matches)){
                 $post = consulta::valida_datos_sql('general_bancos', $_POST);
-                consulta::ejecutar_consulta(consulta::insertar($post, "general_bancos"));
+		echo json_encode($_POST); 
+		    echo json_encode($post); 
+                //consulta::ejecutar_consulta(consulta::insertar($post, "general_bancos"));
+		
             }
             if(preg_match("/actualizarBanco\//", $resource, $matches)){
                 $donde="id='".$_POST["id"]."'";
@@ -2673,7 +2679,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_bancos", $donde));
             }
             if(preg_match("/eliminarBanco\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2694,7 +2700,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_bodega", $donde));
             }
             if(preg_match("/eliminarBodega\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2711,7 +2717,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_condicion_pago", $donde));
             }
             if(preg_match("/eliminarCondicinesPago\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2728,7 +2734,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_params", $donde));
             }
             if(preg_match("/eliminarGrupo\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2745,7 +2751,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_tax", $donde));
             }
             if(preg_match("/eliminarImpuesto\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2762,7 +2768,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_params", $donde));
             }
             if(preg_match("/eliminarLaboratorio\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2779,7 +2785,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_price_list", $donde));
             }
             if(preg_match("/eliminarListaPrecios\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2795,8 +2801,8 @@ if(middlewareSecurity()==true){
                 $post = consulta::valida_datos_sql('general_params', $_POST);
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_params", $donde));
             }
-            if(preg_match("/ \//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+            if(preg_match("/eliminarPresentacion\//", $resource, $matches)){
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2813,7 +2819,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_params", $donde));
             }
             if(preg_match("/eliminarRuta\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2830,7 +2836,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_tip_doc", $donde));
             }
             if(preg_match("/eliminarTipoDocumento\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
@@ -2850,7 +2856,7 @@ if(middlewareSecurity()==true){
                 consulta::ejecutar_consulta(consulta::actualizar($post, "general_third", $donde));
             }
             if(preg_match("/eliminarVendedor\//", $resource, $matches)){
-                $id = explode("|", $_GET["id"]);            
+                $id = explode("|", $_POST["id"]);            
                 for($i=0;$i<count($id);$i++)
                 {
                     $donde="id='".$id[$i]."'";            
