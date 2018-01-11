@@ -809,8 +809,12 @@ if(middlewareSecurity()==true){
                 $miempresa = consulta::convertir_a_array(consulta::ejecutar_consulta($sql));
                 echo json_encode($miempresa);
             }
-            if(preg_match("/ \//", $resource, $matches)){
-                
+            if(preg_match("/buscarTerceros\//", $resource, $matches)){
+                $datos[0]="*";
+		$donde='1=1';
+		$sql=consulta::seleccionar($datos,"general_third", $donde);
+		$provedores = consulta::convertir_a_array(consulta::ejecutar_consulta($sql));
+		echo json_encode($provedores);
             }
         break;
     
