@@ -1,6 +1,9 @@
-<?php header('Access-Control-Allow-Origin: *'); 
+<?php header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: http://localhost:4200');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require_once 'includes/includes.php';
-cors();
+//cors();
 $method = $_SERVER['REQUEST_METHOD'];
 $resource = $_SERVER['REQUEST_URI'];
 
