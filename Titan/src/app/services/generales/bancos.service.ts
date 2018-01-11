@@ -9,7 +9,7 @@ export class BancosService {
   constructor(private appSettings: AppSettings, private http: HttpClient) { }
 
   getBancos(): Observable<any>  {
-     return this.http.get(`${this.appSettings.endPointTitan}buscarTipoDocumentos/`);
+     return this.http.get(`${this.appSettings.endPointTitan}buscarBancos/`);
   }
 
   setBancos(banco: any): Observable<any>  {
@@ -23,6 +23,4 @@ export class BancosService {
   deleteBancos(banco: any): Observable<any>  {
      return this.http.post(`${this.appSettings.endPointTitan}eliminarBanco/`, banco);
   }
-
-
 }

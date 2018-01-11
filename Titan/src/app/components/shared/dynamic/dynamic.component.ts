@@ -2,6 +2,7 @@ import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ViewChil
   OnDestroy, ComponentRef } from '@angular/core';
 import { InicioComponent } from '../../inicio/inicio.component';
 import { TipoDocumentoComponent } from './../../tablas-generales/tipo-documento/tipo-documento.component';
+import { BancosComponent } from '../../tablas-generales/bancos/bancos.component';
 
 @Component({
   selector: 'app-dynamic',
@@ -21,7 +22,8 @@ export class DynamicComponent implements OnInit, OnDestroy {
 
   private mappings = {
     'inicio': InicioComponent,
-    'listTipodocumentos': TipoDocumentoComponent
+    'listTipodocumentos': TipoDocumentoComponent,
+    'listBancos': BancosComponent
   };
 
   private componentRef: ComponentRef<{}>;

@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Codigo: <input class="form-control col-10" type="text" [(ngModel)]="dataForm.codigo">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Nombre: <input class="form-control col-10" type="text" [(ngModel)]="dataForm.nombre">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Descripcion: <input class="form-control col-10" type="text" [(ngModel)]="dataForm.descripcion">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Cuenta Bancaria: <input class="form-control col-10" type="text" [(ngModel)]="dataForm.cuenta">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Tipo Cuenta: 
+        <select class="form-control" [(ngModel)]="dataForm.tipocuenta">
+            <option *ngFor="let c of tipoCuenta" [ngValue]="c.id">{{c.value}}</option>
+        </select>
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Direccion: <input class="form-control col-10" type="text" [(ngModel)]="dataForm.direccion">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Contacto: <input class="form-control col-10" type="text" [(ngModel)]="dataForm.contacto">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Telefono: <input class="form-control col-10" type="text" [(ngModel)]="dataForm.telefono">
+    </div>
+  </div>
+</div>
+<div class="col-12">
+    <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="onSave()">
+      <i class="fa fa-save"></i>
+      Aceptar
+    </button>
+</div>

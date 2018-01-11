@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-2">
+      <button type="button" class="btn btn-block btn-outline-success" (click)="onCreate();openModal(templateModal)">
+          <i class="fa fa-plus"></i> Agregar
+      </button>
+  </div>
+</div>
+<app-data-table [columns]="this.columns" [data]="bancos" [options]="true" (editEvent)="onEdit($event);openModal(templateModal)"></app-data-table>
+<ng-template #templateModal>
+  <div class="modal-header">
+      <h4 class="modal-title pull-left">Banco</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <app-modal-bancos [data]="dataBancos"></app-modal-bancos>
+  </div>
+</ng-template>

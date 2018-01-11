@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppSettings } from './app.settings';
 
-
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap';
@@ -14,6 +13,7 @@ import { CatchInterceptorService } from './services/shared/http-interceptor.serv
 import { SessionStorageService } from './services/shared/session-storage.service';
 import { MenuService } from './services/shared/menu.service';
 import { TipoDocumentoService } from './services/generales/tipo-documento.service';
+import { BancosService } from './services/generales/bancos.service';
 
 import { AppComponent } from './app.component';
 import { AlertsComponent } from './components/shared/alerts/alerts.component';
@@ -26,6 +26,9 @@ import { DynamicComponent } from './components/shared/dynamic/dynamic.component'
 import { InicioComponent } from './components/inicio/inicio.component';
 import { DataTableComponent } from './components/shared/data-table/data-table.component';
 import { ModalTipoDocumentoComponent } from './components/tablas-generales/tipo-documento/modal-tipo-documento/modal-tipo-documento.component';
+import { BancosComponent } from './components/tablas-generales/bancos/bancos.component';
+import { ModalBancosComponent } from './components/tablas-generales/bancos/modal-bancos/modal-bancos.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { ModalTipoDocumentoComponent } from './components/tablas-generales/tipo-
     DynamicComponent,
     InicioComponent,
     DataTableComponent,
-    ModalTipoDocumentoComponent
+    ModalTipoDocumentoComponent,
+    BancosComponent,
+    ModalBancosComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { ModalTipoDocumentoComponent } from './components/tablas-generales/tipo-
   ],
   entryComponents: [
     InicioComponent,
-    TipoDocumentoComponent
+    TipoDocumentoComponent,
+    BancosComponent
   ],
   providers: [
     AppSettings,
@@ -59,6 +65,7 @@ import { ModalTipoDocumentoComponent } from './components/tablas-generales/tipo-
     MenuService,
     BsModalService,
     TipoDocumentoService,
+    BancosService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CatchInterceptorService,
