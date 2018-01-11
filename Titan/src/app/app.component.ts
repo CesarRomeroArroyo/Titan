@@ -10,6 +10,10 @@ import { SessionStorageService } from './services/shared/session-storage.service
 export class AppComponent {
   isLogged: boolean;
   constructor(private _storage: SessionStorageService) {
+    console.log(this._storage.obtener('TITAN-USERDATA'));
+    if (this._storage.obtener('TITAN-USERDATA') != null) {
+      this.isLogged = true;
+    }
   }
 
   onLogIn ($event) {

@@ -14,6 +14,7 @@ import { SessionStorageService } from './services/shared/session-storage.service
 import { MenuService } from './services/shared/menu.service';
 import { TipoDocumentoService } from './services/generales/tipo-documento.service';
 import { BancosService } from './services/generales/bancos.service';
+import { AdministracionTercerosService } from './services/terceros/administracion-terceros.service';
 
 import { AppComponent } from './app.component';
 import { AlertsComponent } from './components/shared/alerts/alerts.component';
@@ -28,6 +29,8 @@ import { DataTableComponent } from './components/shared/data-table/data-table.co
 import { ModalTipoDocumentoComponent } from './components/tablas-generales/tipo-documento/modal-tipo-documento/modal-tipo-documento.component';
 import { BancosComponent } from './components/tablas-generales/bancos/bancos.component';
 import { ModalBancosComponent } from './components/tablas-generales/bancos/modal-bancos/modal-bancos.component';
+import { AdmimnistracionTercerosComponent } from './components/terceros/admimnistracion-terceros/admimnistracion-terceros.component';
+
 
 
 @NgModule({
@@ -44,7 +47,8 @@ import { ModalBancosComponent } from './components/tablas-generales/bancos/modal
     DataTableComponent,
     ModalTipoDocumentoComponent,
     BancosComponent,
-    ModalBancosComponent
+    ModalBancosComponent,
+    AdmimnistracionTercerosComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,8 @@ import { ModalBancosComponent } from './components/tablas-generales/bancos/modal
   entryComponents: [
     InicioComponent,
     TipoDocumentoComponent,
-    BancosComponent
+    BancosComponent,
+    AdmimnistracionTercerosComponent
   ],
   providers: [
     AppSettings,
@@ -65,6 +70,7 @@ import { ModalBancosComponent } from './components/tablas-generales/bancos/modal
     MenuService,
     BsModalService,
     TipoDocumentoService,
+    AdministracionTercerosService,
     BancosService,
     {
       provide: HTTP_INTERCEPTORS,
