@@ -2666,6 +2666,7 @@ if(middlewareSecurity()==true){
             if(preg_match("/agregarBanco\//", $resource, $matches)){
                 $post = consulta::valida_datos_sql('general_bancos', $_POST);
                 consulta::ejecutar_consulta(consulta::insertar($post, "general_bancos"));
+		echo json_encode($_POST);
             }
             if(preg_match("/actualizarBanco\//", $resource, $matches)){
                 $donde="id='".$_POST["id"]."'";
