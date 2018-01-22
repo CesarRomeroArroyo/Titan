@@ -21,7 +21,9 @@ export class ModalBancosComponent implements OnInit, OnChanges {
   }
 
   onSave() {
+    debugger;
     if (this.dataForm.id === '') {
+      this.dataForm.id = '3';
       const retorno = this._service.setBancos(this.dataForm).subscribe(
         result => {
          console.log(result);
