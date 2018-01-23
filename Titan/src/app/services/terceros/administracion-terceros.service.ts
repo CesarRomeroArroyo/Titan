@@ -13,16 +13,16 @@ export class AdministracionTercerosService {
     return this.http.get(`${this.appSettings.endPointTitan}buscarTerceros/`);
  }
 
- setTercero(banco: any): Observable<any>  {
-    return this.http.post(`${this.appSettings.endPointTitan}agregarBanco/`, banco);
+ setTercero(tercero: any): Observable<any>  {
+    return this.http.post(`${this.appSettings.endPointTitan}agregarBanco/`, tercero);
  }
 
- updateTercero(banco: any): Observable<any>  {
-    return this.http.post(`${this.appSettings.endPointTitan}actualizarBanco/`, banco);
+ updateTercero(tercero: any): Observable<any>  {
+    return this.http.post(`${this.appSettings.endPointTitan}actualizarBanco/`, tercero);
  }
 
- deleteTercero(banco: any): Observable<any>  {
-    return this.http.post(`${this.appSettings.endPointTitan}eliminarBanco/`, banco);
+ deleteTercero(tercero: any): Observable<any>  {
+    return this.http.post(`${this.appSettings.endPointTitan}eliminarBanco/`, tercero);
  }
 
 }

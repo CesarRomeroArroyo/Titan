@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { TipoDocumentoService } from '../../../../services/generales/tipo-documento.service';
+import { Component, OnInit, Input, Output, OnChanges, SimpleChanges, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal-tipo-documento',
@@ -7,8 +8,9 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class ModalTipoDocumentoComponent implements OnInit, OnChanges {
   @Input() data;
+  @Output() savedEvent = new EventEmitter<void>();
   private dataForm;
-  constructor() { }
+  constructor(private _tipoDocumentoService: TipoDocumentoService) { }
 
   ngOnInit() {
   }
@@ -18,10 +20,27 @@ export class ModalTipoDocumentoComponent implements OnInit, OnChanges {
   }
 
   onSave() {
-    if (this.dataForm.id === '') {
-      alert('crear');
+    debugger;
+    if (this.dataForm.idunico === '') {
+      this._tipoDocumentoService.setTipoDocumento(this.dataForm).subscribe(
+        result => {
+         console.log(result);
+         this.savedEvent.emit();
+        },
+        error => {
+            console.log(<any>error);
+        }
+      );
     } else {
-      alert('actualizar');
+      this._tipoDocumentoService.updateTipoDocumento(this.dataForm).subscribe(
+        result => {
+         console.log(result);
+         this.savedEvent.emit();
+        },
+        error => {
+            console.log(<any>error);
+        }
+      );
     }
   }
 

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { BancosService } from '../../../../services/generales/bancos.service';
+
 @Component({
   selector: 'app-modal-bancos',
   templateUrl: './modal-bancos.component.html',
@@ -7,6 +8,8 @@ import { BancosService } from '../../../../services/generales/bancos.service';
 })
 export class ModalBancosComponent implements OnInit, OnChanges {
   @Input() data;
+  @Input() numReg;
+  @Output() savedEvent = new EventEmitter<void>();
   private dataForm;
   private tipoCuenta: any;
   constructor(private _service: BancosService) {
@@ -21,12 +24,11 @@ export class ModalBancosComponent implements OnInit, OnChanges {
   }
 
   onSave() {
-    debugger;
-    if (this.dataForm.id === '') {
-      this.dataForm.id = '3';
+    if (this.dataForm.idunico === '') {
       const retorno = this._service.setBancos(this.dataForm).subscribe(
         result => {
          console.log(result);
+         this.savedEvent.emit();
         },
         error => {
             console.log(<any>error);
@@ -34,7 +36,15 @@ export class ModalBancosComponent implements OnInit, OnChanges {
       );
       console.log(retorno);
     } else {
-      this._service.updateBancos(this.dataForm);
+      this._service.updateBancos(this.dataForm).subscribe(
+        result => {
+         console.log(result);
+         this.savedEvent.emit();
+        },
+        error => {
+            console.log(<any>error);
+        }
+      );
     }
   }
 }

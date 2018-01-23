@@ -23,9 +23,14 @@ export class BancosComponent implements OnInit {
   modalRef: BsModalRef;
   bancos: any;
   columns: Array<any>;
+  numReg: number;
   constructor(private _service: BancosService, private modalService: BsModalService) { }
 
   ngOnInit() {
+    this.buscarDatos();
+  }
+
+  buscarDatos () {
     this._service.getBancos().subscribe(
       result => {
         this.columns = [
@@ -47,7 +52,7 @@ export class BancosComponent implements OnInit {
 
   onCreate() {
     this.dataBancos = {
-      id: '',
+      id: this.bancos.length,
       codigo: '',
       nombre: '',
       descripcion: '',
@@ -55,13 +60,30 @@ export class BancosComponent implements OnInit {
       tipocuenta: '',
       direccion: '',
       telefono: '',
-      contacto: ''
+      contacto: '',
+      idunico: ''
     };
   }
 
   onEdit(data: any) {
     this.dataBancos = data;
-    console.log(this.dataBancos);
+  }
+
+  onDelete(data: any) {
+    this._service.deleteBancos(data).subscribe(
+      result => {
+       console.log(result);
+       this.buscarDatos();
+      },
+      error => {
+          console.log(<any>error);
+      }
+    );
+  }
+
+  savedInfo() {
+    this.buscarDatos();
+    this.modalService.hide(1);
   }
 
 }

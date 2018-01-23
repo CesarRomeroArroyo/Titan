@@ -5,7 +5,9 @@
       </button>
   </div>
 </div>
-<app-data-table [columns]="this.columns" [data]="bancos" [options]="true" (editEvent)="onEdit($event);openModal(templateModal)"></app-data-table>
+<app-data-table [columns]="this.columns" [data]="bancos" [options]="true" 
+    (editEvent)="onEdit($event);openModal(templateModal)" (deleteEvent)="onDelete($event)">
+</app-data-table>
 <ng-template #templateModal>
   <div class="modal-header">
       <h4 class="modal-title pull-left">Banco</h4>
@@ -14,6 +16,6 @@
       </button>
   </div>
   <div class="modal-body">
-      <app-modal-bancos [data]="dataBancos"></app-modal-bancos>
+      <app-modal-bancos [data]="dataBancos" (savedEvent)="savedInfo()"></app-modal-bancos>
   </div>
 </ng-template>

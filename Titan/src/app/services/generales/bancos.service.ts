@@ -18,10 +18,10 @@ export class BancosService {
   }
 
   updateBancos(banco: any): Observable<any>  {
-     return this.http.put(`${this.appSettings.endPointTitan}general_bancos/`, banco);
+     return this.http.put(`${this.appSettings.endPointTitan}general_bancos/${banco.id}`, banco);
   }
 
   deleteBancos(banco: any): Observable<any>  {
-     return this.http.delete(`${this.appSettings.endPointTitan}general_bancos/`, banco);
+     return this.http.delete(`${this.appSettings.endPointTitan}general_bancos/${banco.id}`);
   }
 }

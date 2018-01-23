@@ -17,6 +17,10 @@ export class TipoDocumentoComponent implements OnInit {
   constructor(private _tipoDocumentoService: TipoDocumentoService, private modalService: BsModalService) { }
 
   ngOnInit() {
+    this.buscarDatos();
+  }
+
+  buscarDatos() {
     this._tipoDocumentoService.getTipoDocumento().subscribe(
       result => {
         this.columns = [
@@ -39,10 +43,16 @@ export class TipoDocumentoComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
   onCreate() {
-    this.dataTipoDoc = {comportamiento: '', convertir: '', descrip: '', formato_imp: '', id: '', id_bodega: '', n_actual: '', n_final: '', n_inicial: '', notas: '', prefijo: ''};
+    this.dataTipoDoc = {comportamiento: '', convertir: '', descrip: '', formato_imp: '', idunico: '', id_bodega: '',
+    n_actual: '', n_final: '', n_inicial: '', notas: '', prefijo: ''};
   }
 
   onEdit(data: any) {
     this.dataTipoDoc = data;
+  }
+
+  savedInfo() {
+    this.buscarDatos();
+    this.modalService.hide(1);
   }
 }

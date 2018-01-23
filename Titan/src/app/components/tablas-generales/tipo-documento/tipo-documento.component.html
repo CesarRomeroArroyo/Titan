@@ -1,3 +1,10 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-2">
+        <button type="button" class="btn btn-block btn-outline-success" (click)="onCreate();openModal(templateModal)">
+            <i class="fa fa-plus"></i> Agregar
+        </button>
+    </div>
+</div>
 <app-data-table [columns]="this.columns" [data]="tipoDocumentos" [options]="true" (editEvent)="onEdit($event);openModal(templateModal)"></app-data-table>
 <ng-template #templateModal>
     <div class="modal-header">
@@ -7,6 +14,6 @@
         </button>
     </div>
     <div class="modal-body">
-        <app-modal-tipo-documento [data]="dataTipoDoc"></app-modal-tipo-documento>
+        <app-modal-tipo-documento [data]="dataTipoDoc" (savedEvent)="savedInfo()"></app-modal-tipo-documento>
     </div>
 </ng-template>
