@@ -52,7 +52,7 @@ export class BancosComponent implements OnInit {
 
   onCreate() {
     this.dataBancos = {
-      id: this.bancos.length,
+      id: 0,
       codigo: '',
       nombre: '',
       descripcion: '',
@@ -69,11 +69,16 @@ export class BancosComponent implements OnInit {
     this.dataBancos = data;
   }
 
-  onDelete(data: any) {
-    this._service.deleteBancos(data).subscribe(
+  onDelete(template: TemplateRef<any>, data: any) {
+    this.dataBancos = data;
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
+
+  deletedInfo() {
+    this._service.deleteBancos(this.dataBancos).subscribe(
       result => {
        console.log(result);
-       this.buscarDatos();
+       this.savedInfo();
       },
       error => {
           console.log(<any>error);

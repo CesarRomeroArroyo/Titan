@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { TipoDocumentoService } from '../../../services/generales/tipo-documento.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import {  } from '@angular/core';
 
 
 @Component({
@@ -10,10 +11,14 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./tipo-documento.component.css']
 })
 export class TipoDocumentoComponent implements OnInit {
-  dataTipoDoc: any = {comportamiento: '', convertir: '', descrip: '', formato_imp: '', id: '', id_bodega: '', n_actual: '', n_final: '', n_inicial: '', notas: '', prefijo: ''};
+  dataTipoDoc: any = {
+    comportamiento: '', convertir: '', descrip: '', formato_imp: '', id: '', id_bodega: '', n_actual: '', n_final: '', 
+    n_inicial: '', notas: '', prefijo: ''};
   modalRef: BsModalRef;
   tipoDocumentos: any;
   columns: Array<any> ;
+
+
   constructor(private _tipoDocumentoService: TipoDocumentoService, private modalService: BsModalService) { }
 
   ngOnInit() {
@@ -24,7 +29,6 @@ export class TipoDocumentoComponent implements OnInit {
     this._tipoDocumentoService.getTipoDocumento().subscribe(
       result => {
         this.columns = [
-          {title: 'Id', name: 'id'},
           {title: 'Nombre', name: 'descrip'},
           {title: 'Prefijo', name: 'prefijo'},
           {title: 'Num. Actual', name: 'n_actual'},
@@ -49,6 +53,23 @@ export class TipoDocumentoComponent implements OnInit {
 
   onEdit(data: any) {
     this.dataTipoDoc = data;
+  }
+
+  onDelete(template: TemplateRef<any>, data: any) {
+    this.dataTipoDoc = data;
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
+
+  deletedInfo() {
+    this._tipoDocumentoService.deleteTipoDocumento(this.dataTipoDoc).subscribe(
+      result => {
+       console.log(result);
+       this.savedInfo();
+      },
+      error => {
+          console.log(<any>error);
+      }
+    );
   }
 
   savedInfo() {

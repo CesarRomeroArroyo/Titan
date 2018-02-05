@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MenuService } from '../../../services/shared/menu.service';
+import { PermisosService } from '../../../services/shared/permisos.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,14 +11,21 @@ export class MenuComponent implements OnInit {
   @Output() selectOption = new EventEmitter<any>();
   menuOptions: any;
   optionSelected = {text: '', component: ''};
-  constructor(private _menuService: MenuService) { }
+  constructor(private _menuService: MenuService, private _permisosService: PermisosService) { }
 
   ngOnInit() {
-    this._menuService.buscarMenus().subscribe(
+    this._permisosService.buscarPerfilUsuario().subscribe(
       result => {
-        this.menuOptions = result;
         console.log(result);
-
+        this._menuService.buscarMenus(result.perfil).subscribe(
+          menu => {
+            this.menuOptions = menu;
+            console.log(this.menuOptions);
+          },
+          error => {
+              console.log(<any>error);
+          }
+        );
       },
       error => {
           console.log(<any>error);

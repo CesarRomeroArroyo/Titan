@@ -11,7 +11,7 @@ export class LoginService {
    }
 
    login(usuario: string, pass: string): Observable<any> {
-    return this.http.get(`${this.appSettings.endPointCore}entry/?usuario=${usuario}&pass=${pass}`);
+    return this.http.get(`${this.appSettings.endPointCore}General_Usuarios/${usuario}@${pass}`);
    }
 
    getUserLogged() {

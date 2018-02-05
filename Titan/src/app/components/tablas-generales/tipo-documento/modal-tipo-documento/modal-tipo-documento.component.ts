@@ -20,7 +20,6 @@ export class ModalTipoDocumentoComponent implements OnInit, OnChanges {
   }
 
   onSave() {
-    debugger;
     if (this.dataForm.idunico === '') {
       this._tipoDocumentoService.setTipoDocumento(this.dataForm).subscribe(
         result => {

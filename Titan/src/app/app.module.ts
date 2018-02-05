@@ -15,6 +15,9 @@ import { MenuService } from './services/shared/menu.service';
 import { TipoDocumentoService } from './services/generales/tipo-documento.service';
 import { BancosService } from './services/generales/bancos.service';
 import { AdministracionTercerosService } from './services/terceros/administracion-terceros.service';
+import { PermisosService } from './services/shared/permisos.service';
+
+
 
 import { AppComponent } from './app.component';
 import { AlertsComponent } from './components/shared/alerts/alerts.component';
@@ -30,6 +33,11 @@ import { ModalTipoDocumentoComponent } from './components/tablas-generales/tipo-
 import { BancosComponent } from './components/tablas-generales/bancos/bancos.component';
 import { ModalBancosComponent } from './components/tablas-generales/bancos/modal-bancos/modal-bancos.component';
 import { AdmimnistracionTercerosComponent } from './components/terceros/admimnistracion-terceros/admimnistracion-terceros.component';
+import { ModalConfirmComponent } from './components/shared/modal-confirm/modal-confirm.component';
+import { VendedoresComponent } from './components/tablas-generales/vendedores/vendedores.component';
+import { ModalVendedoresComponent } from './components/tablas-generales/vendedores/modal-vendedores/modal-vendedores.component';
+
+
 
 
 
@@ -48,7 +56,10 @@ import { AdmimnistracionTercerosComponent } from './components/terceros/admimnis
     ModalTipoDocumentoComponent,
     BancosComponent,
     ModalBancosComponent,
-    AdmimnistracionTercerosComponent
+    AdmimnistracionTercerosComponent,
+    ModalConfirmComponent,
+    VendedoresComponent,
+    ModalVendedoresComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +72,9 @@ import { AdmimnistracionTercerosComponent } from './components/terceros/admimnis
     InicioComponent,
     TipoDocumentoComponent,
     BancosComponent,
-    AdmimnistracionTercerosComponent
+    AdmimnistracionTercerosComponent,
+    ModalConfirmComponent,
+    VendedoresComponent
   ],
   providers: [
     AppSettings,
@@ -71,6 +84,7 @@ import { AdmimnistracionTercerosComponent } from './components/terceros/admimnis
     BsModalService,
     TipoDocumentoService,
     AdministracionTercerosService,
+    PermisosService,
     BancosService,
     {
       provide: HTTP_INTERCEPTORS,

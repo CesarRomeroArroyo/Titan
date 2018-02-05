@@ -4,6 +4,7 @@ import { InicioComponent } from '../../inicio/inicio.component';
 import { TipoDocumentoComponent } from './../../tablas-generales/tipo-documento/tipo-documento.component';
 import { BancosComponent } from '../../tablas-generales/bancos/bancos.component';
 import { AdmimnistracionTercerosComponent } from '../../terceros/admimnistracion-terceros/admimnistracion-terceros.component';
+import { VendedoresComponent } from '../../tablas-generales/vendedores/vendedores.component';
 
 @Component({
   selector: 'app-dynamic',
@@ -25,7 +26,8 @@ export class DynamicComponent implements OnInit, OnDestroy {
     'inicio': InicioComponent,
     'listTipodocumentos': TipoDocumentoComponent,
     'listBancos': BancosComponent,
-    'listClientes': AdmimnistracionTercerosComponent
+    'listClientes': AdmimnistracionTercerosComponent,
+    'listVendedores': VendedoresComponent
   };
 
   private componentRef: ComponentRef<{}>;

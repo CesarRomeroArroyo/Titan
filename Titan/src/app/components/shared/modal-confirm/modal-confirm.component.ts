@@ -1,14 +1,13 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-alerts',
-  templateUrl: './alerts.component.html',
-  styleUrls: ['./alerts.component.css']
+  selector: 'app-modal-confirm',
+  templateUrl: './modal-confirm.component.html',
+  styleUrls: ['./modal-confirm.component.css']
 })
-export class AlertsComponent implements OnInit {
+export class ModalConfirmComponent implements OnInit {
   @Output() confirmEvent = new EventEmitter<void>();
   @Output() declineEvent = new EventEmitter<void>();
-  @Input() textInput;
   constructor() { }
 
   ngOnInit() {
@@ -21,5 +20,4 @@ export class AlertsComponent implements OnInit {
   decline() {
     this.declineEvent.emit();
   }
-
 }

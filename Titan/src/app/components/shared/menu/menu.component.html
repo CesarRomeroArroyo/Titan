@@ -4,9 +4,9 @@
             <ul id="sidebarnav">
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">TITAN</li>
-                <li *ngFor="let menu of menuOptions"> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">{{menu.text}}</span></a>
+                <li *ngFor="let menu of menuOptions"> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i style="font-size: 15px;" class="{{menu.menuOption.icono}}"></i><span class="hide-menu">{{menu.menuOption.texto}}</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li class="menuOption" style="cursor: pointer;" *ngFor="let submenu of menu.submenus" (click)="seleccionarOpcion(submenu.text, submenu.accion)"><a>{{submenu.text}} </a></li>
+                        <li class="menuOption" style="cursor: pointer;" *ngFor="let submenu of menu.subMenuOption" (click)="seleccionarOpcion(submenu.texto, submenu.accion)"><a>{{submenu.texto}} </a></li>
                     </ul>
                 </li>
             </ul>

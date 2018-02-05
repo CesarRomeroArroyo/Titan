@@ -6,7 +6,7 @@
   </div>
 </div>
 <app-data-table [columns]="this.columns" [data]="bancos" [options]="true" 
-    (editEvent)="onEdit($event);openModal(templateModal)" (deleteEvent)="onDelete($event)">
+    (editEvent)="onEdit($event);openModal(templateModal)" (deleteEvent)="onDelete(templateConfirm, $event)">
 </app-data-table>
 <ng-template #templateModal>
   <div class="modal-header">
@@ -18,4 +18,7 @@
   <div class="modal-body">
       <app-modal-bancos [data]="dataBancos" (savedEvent)="savedInfo()"></app-modal-bancos>
   </div>
+</ng-template>
+<ng-template #templateConfirm>
+    <app-modal-confirm (confirmEvent)="deletedInfo()" (declineEvent)="savedInfo()"></app-modal-confirm>
 </ng-template>

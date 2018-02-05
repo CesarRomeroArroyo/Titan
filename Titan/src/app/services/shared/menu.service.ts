@@ -7,13 +7,10 @@ import { AppSettings } from '../../app.settings';
 
 @Injectable()
 export class MenuService {
-  userLogged: any;
-  constructor(private _loginSerice: LoginService, private http: HttpClient, private appSettings: AppSettings) {
-    this.userLogged = this._loginSerice.getUserLogged();
-  }
+  constructor(private _loginSerice: LoginService, private http: HttpClient, private appSettings: AppSettings) { }
 
-  buscarMenus(): Observable<any> {
-    return this.http.get(`${this.appSettings.endPointCore}buscarMenusPerfil/?iduser=${this.userLogged.iduser}`);
+  buscarMenus(id): Observable<any> {
+    return this.http.get(`${this.appSettings.endPointCore}General_Permisos/?id=${id}`);
   }
 
 

@@ -1044,7 +1044,7 @@ ul.list-style-none li a:hover {
     }
     .mini-sidebar .sidebar-nav #sidebarnav>li>ul {
         position: absolute;
-        top: 57px;
+        top: 40px;
         width: 220px;
         padding-bottom: 10px;
         z-index: 1001;

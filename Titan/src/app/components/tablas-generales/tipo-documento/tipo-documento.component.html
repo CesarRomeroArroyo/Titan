@@ -5,7 +5,10 @@
         </button>
     </div>
 </div>
-<app-data-table [columns]="this.columns" [data]="tipoDocumentos" [options]="true" (editEvent)="onEdit($event);openModal(templateModal)"></app-data-table>
+<app-data-table [columns]="this.columns" [data]="tipoDocumentos" [options]="true" 
+    (editEvent)="onEdit($event);openModal(templateModal)"
+    (deleteEvent)="onDelete(templateConfirm, $event)">
+</app-data-table>
 <ng-template #templateModal>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Tipo de Documento</h4>
@@ -16,4 +19,7 @@
     <div class="modal-body">
         <app-modal-tipo-documento [data]="dataTipoDoc" (savedEvent)="savedInfo()"></app-modal-tipo-documento>
     </div>
+</ng-template>
+<ng-template #templateConfirm>
+    <app-modal-confirm (confirmEvent)="deletedInfo()" (declineEvent)="savedInfo()"></app-modal-confirm>
 </ng-template>

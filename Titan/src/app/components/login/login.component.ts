@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   iniciarSesion() {
     this._loginService.login(this.appUser.usuario, this.appUser.pass).subscribe(
       result => {
+        this._storage.agregar('TITAN-USERDATA', JSON.stringify(result));
         this.logIn.emit();
-        this._storage.agregar('TITAN-USERDATA', JSON.stringify(result[0]));
         console.log(result);
 
       },
