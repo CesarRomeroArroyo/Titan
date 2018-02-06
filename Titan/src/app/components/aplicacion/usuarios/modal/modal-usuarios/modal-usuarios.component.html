@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-12 form-group m-t-40">
+    <div class="col-12">
+      Usuario: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.usuario">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Nombre: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.nombre">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Codigo: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.codigo">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Email: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.email">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Oficina: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.oficina">
+    </div>
+  </div>
+</div>
+  
+  <div class="col-12">
+      <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="onSave()">
+        <i class="fa fa-save"></i>
+        Aceptar
+      </button>
+  </div>
+  

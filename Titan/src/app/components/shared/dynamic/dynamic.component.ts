@@ -5,6 +5,11 @@ import { TipoDocumentoComponent } from './../../tablas-generales/tipo-documento/
 import { BancosComponent } from '../../tablas-generales/bancos/bancos.component';
 import { AdmimnistracionTercerosComponent } from '../../terceros/admimnistracion-terceros/admimnistracion-terceros.component';
 import { VendedoresComponent } from '../../tablas-generales/vendedores/vendedores.component';
+import { PerfilesComponent } from '../../aplicacion/perfiles/perfiles.component';
+import { UsuariosComponent } from '../../aplicacion/usuarios/usuarios.component';
+import { MenusComponent } from '../../aplicacion/menus/menus.component';
+import { PermisosComponent } from '../../aplicacion/permisos/permisos.component';
+
 
 @Component({
   selector: 'app-dynamic',
@@ -27,7 +32,10 @@ export class DynamicComponent implements OnInit, OnDestroy {
     'listTipodocumentos': TipoDocumentoComponent,
     'listBancos': BancosComponent,
     'listClientes': AdmimnistracionTercerosComponent,
-    'listVendedores': VendedoresComponent
+    'lisUsuarios': UsuariosComponent,
+    'listPrefil': PerfilesComponent,
+    'listMenu': MenusComponent,
+    'listPermisos': PermisosComponent
   };
 
   private componentRef: ComponentRef<{}>;

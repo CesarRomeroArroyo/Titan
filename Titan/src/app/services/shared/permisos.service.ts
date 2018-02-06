@@ -16,4 +16,21 @@ export class PermisosService {
     return this.http.get(`${this.appSettings.endPointCore}General_Perfil_Usuario/?id=${this.userLogged.id}`);
   }
 
+  obtener(): Observable<any>  {
+    const retorno = this.http.get(`${this.appSettings.endPointTitan}General_Permisos/`);
+     return retorno;
+  }
+
+  adicionar(datos: any): Observable<any>  {
+     return this.http.post(`${this.appSettings.endPointTitan}General_Permisos/`, datos);
+  }
+
+  actualizar(datos: any): Observable<any>  {
+     return this.http.put(`${this.appSettings.endPointTitan}General_Permisos/${datos.id}`, datos);
+  }
+
+  eliminar(datos: any): Observable<any>  {
+     return this.http.delete(`${this.appSettings.endPointTitan}General_Permisos/${datos.id}`);
+  }
+
 }

@@ -16,8 +16,7 @@ import { TipoDocumentoService } from './services/generales/tipo-documento.servic
 import { BancosService } from './services/generales/bancos.service';
 import { AdministracionTercerosService } from './services/terceros/administracion-terceros.service';
 import { PermisosService } from './services/shared/permisos.service';
-
-
+import { UsuariosService } from './services/aplicacion/usuarios.service';
 
 import { AppComponent } from './app.component';
 import { AlertsComponent } from './components/shared/alerts/alerts.component';
@@ -36,10 +35,15 @@ import { AdmimnistracionTercerosComponent } from './components/terceros/admimnis
 import { ModalConfirmComponent } from './components/shared/modal-confirm/modal-confirm.component';
 import { VendedoresComponent } from './components/tablas-generales/vendedores/vendedores.component';
 import { ModalVendedoresComponent } from './components/tablas-generales/vendedores/modal-vendedores/modal-vendedores.component';
-
-
-
-
+import { PerfilesComponent } from './components/aplicacion/perfiles/perfiles.component';
+import { PerfilesService } from './services/aplicacion/perfiles.service';
+import { ModalPerfilesComponent } from './components/aplicacion/perfiles/modal/modal-perfiles/modal-perfiles.component';
+import { UsuariosComponent } from './components/aplicacion/usuarios/usuarios.component';
+import { ModalUsuariosComponent } from './components/aplicacion/usuarios/modal/modal-usuarios/modal-usuarios.component';
+import { MenusComponent } from './components/aplicacion/menus/menus.component';
+import { MenusService } from './services/aplicacion/menus.service';
+import { ModalMenusComponent } from './components/aplicacion/menus/modal/modal-menus/modal-menus.component';
+import { PermisosComponent } from './components/aplicacion/permisos/permisos.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +63,14 @@ import { ModalVendedoresComponent } from './components/tablas-generales/vendedor
     AdmimnistracionTercerosComponent,
     ModalConfirmComponent,
     VendedoresComponent,
-    ModalVendedoresComponent
+    ModalVendedoresComponent,
+    PerfilesComponent,
+    ModalPerfilesComponent,
+    UsuariosComponent,
+    ModalUsuariosComponent,
+    MenusComponent,
+    ModalMenusComponent,
+    PermisosComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +85,11 @@ import { ModalVendedoresComponent } from './components/tablas-generales/vendedor
     BancosComponent,
     AdmimnistracionTercerosComponent,
     ModalConfirmComponent,
-    VendedoresComponent
+    VendedoresComponent,
+    PerfilesComponent,
+    UsuariosComponent,
+    MenusComponent,
+    PermisosComponent
   ],
   providers: [
     AppSettings,
@@ -85,7 +100,10 @@ import { ModalVendedoresComponent } from './components/tablas-generales/vendedor
     TipoDocumentoService,
     AdministracionTercerosService,
     PermisosService,
+    PerfilesService,
+    UsuariosService,
     BancosService,
+    MenusService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CatchInterceptorService,
