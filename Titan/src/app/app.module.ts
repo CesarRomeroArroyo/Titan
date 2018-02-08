@@ -44,6 +44,7 @@ import { MenusComponent } from './components/aplicacion/menus/menus.component';
 import { MenusService } from './services/aplicacion/menus.service';
 import { ModalMenusComponent } from './components/aplicacion/menus/modal/modal-menus/modal-menus.component';
 import { PermisosComponent } from './components/aplicacion/permisos/permisos.component';
+import { AsignarPerfilComponent } from './components/aplicacion/asignar-perfil/asignar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { PermisosComponent } from './components/aplicacion/permisos/permisos.com
     ModalUsuariosComponent,
     MenusComponent,
     ModalMenusComponent,
-    PermisosComponent
+    PermisosComponent,
+    AsignarPerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ import { PermisosComponent } from './components/aplicacion/permisos/permisos.com
     PerfilesComponent,
     UsuariosComponent,
     MenusComponent,
-    PermisosComponent
+    PermisosComponent,
+    AsignarPerfilComponent
   ],
   providers: [
     AppSettings,

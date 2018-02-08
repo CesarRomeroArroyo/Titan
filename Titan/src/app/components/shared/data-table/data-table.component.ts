@@ -10,8 +10,11 @@ export class DataTableComponent implements OnInit, OnChanges {
   @Input() columns: any[];
   @Input() data: any[];
   @Input() options: boolean;
+  @Input() optionsEdit: boolean;
+  @Input() optionsDelete: boolean;
   @Output() editEvent = new EventEmitter<any>();
   @Output() deleteEvent = new EventEmitter<any>();
+
   private pageRegister: number;
   private pagesNumber: number;
   private registerNumber: number;
@@ -27,6 +30,13 @@ export class DataTableComponent implements OnInit, OnChanges {
     this.nextPage = 10;
     this.orderOrientation = true;
     this.nameSelected = '';
+
+    if (!this.optionsEdit) {
+      this.optionsEdit = true;
+    }
+    if (!this.optionsDelete) {
+      this.optionsDelete = true;
+    }
   }
 
   ngOnInit() {

@@ -1,0 +1,26 @@
+<div class="col-12 form-group m-t-40">
+  <div class="col-6">
+    Usuario: 
+    <select class="form-control" [(ngModel)]="usuario" (change)="cambiarUsuario()">
+        <option *ngFor="let c of usuarios" [ngValue]="c.id">{{c.nombre}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="col-12 form-group m-t-40">
+  <div class="col-6">
+    Perfil: 
+    <select class="form-control" [(ngModel)]="perfilSel">
+        <option *ngFor="let c of perfiles" [ngValue]="c.id">{{c.nombre}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="col-12 form-group m-t-40">
+  <div class="col-3">
+    <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="asignarPerfil()">
+      <i class="fa fa-save"></i>
+      Asignar Perfil
+    </button>
+  </div>
+</div>

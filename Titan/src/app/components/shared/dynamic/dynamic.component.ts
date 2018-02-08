@@ -9,6 +9,7 @@ import { PerfilesComponent } from '../../aplicacion/perfiles/perfiles.component'
 import { UsuariosComponent } from '../../aplicacion/usuarios/usuarios.component';
 import { MenusComponent } from '../../aplicacion/menus/menus.component';
 import { PermisosComponent } from '../../aplicacion/permisos/permisos.component';
+import { AsignarPerfilComponent } from '../../aplicacion/asignar-perfil/asignar-perfil.component';
 
 
 @Component({
@@ -35,7 +36,8 @@ export class DynamicComponent implements OnInit, OnDestroy {
     'lisUsuarios': UsuariosComponent,
     'listPrefil': PerfilesComponent,
     'listMenu': MenusComponent,
-    'listPermisos': PermisosComponent
+    'listPermisos': PermisosComponent,
+    'listAsignarPerfil': AsignarPerfilComponent
   };
 
   private componentRef: ComponentRef<{}>;

@@ -16,11 +16,9 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this._permisosService.buscarPerfilUsuario().subscribe(
       result => {
-        console.log(result);
         this._menuService.buscarMenus(result.perfil).subscribe(
           menu => {
             this.menuOptions = menu;
-            console.log(this.menuOptions);
           },
           error => {
               console.log(<any>error);

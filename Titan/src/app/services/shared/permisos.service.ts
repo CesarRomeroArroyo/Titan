@@ -13,7 +13,12 @@ export class PermisosService {
   }
 
   buscarPerfilUsuario(): Observable<any> {
+    debugger;
     return this.http.get(`${this.appSettings.endPointCore}General_Perfil_Usuario/?id=${this.userLogged.id}`);
+  }
+
+  buscarPerfilUsuarioCodigo(id: any): Observable<any> {
+    return this.http.get(`${this.appSettings.endPointCore}General_Perfil_Usuario/?id=${id}`);
   }
 
   obtener(): Observable<any>  {
@@ -29,8 +34,12 @@ export class PermisosService {
      return this.http.put(`${this.appSettings.endPointTitan}General_Permisos/${datos.id}`, datos);
   }
 
-  eliminar(datos: any): Observable<any>  {
-     return this.http.delete(`${this.appSettings.endPointTitan}General_Permisos/${datos.id}`);
+  eliminar(datos: any, usuario: any): Observable<any>  {
+     return this.http.delete(`${this.appSettings.endPointTitan}General_Permisos/${datos.id}@${usuario}`);
   }
+
+  actualizarPerfil(datos: any): Observable<any>  {
+    return this.http.put(`${this.appSettings.endPointTitan}General_Perfil_Usuario/${datos.id}`, datos);
+ }
 
 }

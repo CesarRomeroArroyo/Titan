@@ -1,20 +1,49 @@
-<div class="col-6 form-group m-t-40">
-  <div class="col-12">
+<div class="col-12 form-group m-t-40">
+  <div class="col-6">
     Perfil: 
-    <select class="form-control">
+    <select class="form-control" [(ngModel)]="perfil">
         <option *ngFor="let c of perfiles" [ngValue]="c.id">{{c.nombre}}</option>
     </select>
   </div>
 </div>
 
-
-<div class="col-3">
-  <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="buscarPermisos()">
-    <i class="fa fa-save"></i>
-    Buscar Permisos
-  </button>
+<div class="col-12 form-group m-t-40">
+  <div class="col-3">
+    <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="buscarPermisos()">
+      <i class="fa fa-save"></i>
+      Buscar Permisos
+    </button>
+  </div>
 </div>
 
-<div class="col-12">
+
+<div *ngIf="perfil">
+  <div class="col-12 form-group m-t-40">
+    <div class="col-6">
+      Menu: 
+      <select class="form-control" [(ngModel)]="menu">
+          <option *ngFor="let c of dataMenu" [ngValue]="c.id">{{c.texto}}</option>
+      </select>
+    </div>
+  </div>
   
+  <div class="col-12 form-group m-t-40">
+    <div class="col-3">
+      <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="agregarPermisos()">
+        <i class="fa fa-plus"></i>
+        Agregar Permisos
+      </button>
+    </div>
+  </div>
 </div>
+
+
+<div class="col-12" >
+  <app-data-table [columns]="this.columns" [data]="dataGnrl" [options]="true" 
+  (deleteEvent)="onDelete(templateConfirm, $event)" [optionsEdit]="false">
+  </app-data-table>
+</div>
+
+<ng-template #templateConfirm>
+  <app-modal-confirm (confirmEvent)="deletedInfo()" (declineEvent)="savedInfo()"></app-modal-confirm>
+</ng-template>

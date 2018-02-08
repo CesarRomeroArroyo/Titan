@@ -18,6 +18,15 @@ export class MenusService {
      return retorno;
   }
 
+  obtenerMenusPermisos(id: string): Observable<any>  {
+    const retorno = this.http.get(`${this.appSettings.endPointTitan}General_Menu/MenusPermisos/?id=${id}`);
+     return retorno;
+  }
+
+  obtenerMenusSinPermisos(id: string): Observable<any>  {
+    const retorno = this.http.get(`${this.appSettings.endPointTitan}General_Menu/MenusSinPermisos/?id=${id}`);
+     return retorno;
+  }
 
   adicionar(datos: any): Observable<any>  {
      return this.http.post(`${this.appSettings.endPointTitan}General_Menu/`, datos);
