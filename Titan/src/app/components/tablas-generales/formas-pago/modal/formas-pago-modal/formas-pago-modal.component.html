@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-12 form-group m-t-40">
+    <div class="col-12">
+        Descripcion: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.descripcion">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Plazo: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.plazo">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Interes: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.interes_1">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Plazo 2: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.plazo_2">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Interes 2: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.interes_2">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Dias de Gracia: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.diagracia">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Descuento Pronto Pago: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.desc_pronto_pago">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 form-group m-t-40">
+    <div class="col-12">
+      Nota: <br/><textarea class="form-control col-10" rows="5" [(ngModel)]="dataForm.notas"></textarea>
+    </div>
+  </div>
+</div>
+<div class="col-12">
+    <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="onSave()">
+      <i class="fa fa-save"></i>
+      Aceptar
+    </button>
+</div>

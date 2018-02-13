@@ -10,19 +10,19 @@ export class AdministracionTercerosService {
   constructor(private appSettings: AppSettings, private http: HttpClient) { }
 
   getTerceros(): Observable<any>  {
-      return this.http.get(`${this.appSettings.endPointTitan}general_third/`);
+      return this.http.get(`${this.appSettings.endPointTitan}General_Terceros/`);
   }
 
   setTercero(tercero: any): Observable<any>  {
-      return this.http.post(`${this.appSettings.endPointTitan}general_third/`, tercero);
+      return this.http.post(`${this.appSettings.endPointTitan}General_Terceros/`, tercero);
   }
 
   updateTercero(tercero: any): Observable<any>  {
-      return this.http.put(`${this.appSettings.endPointTitan}general_third/${tercero.idunico}`, tercero);
+      return this.http.put(`${this.appSettings.endPointTitan}General_Terceros/${tercero.id}`, tercero);
   }
 
   deleteTercero(tercero: any): Observable<any>  {
-      return this.http.delete(`${this.appSettings.endPointTitan}general_third/${tercero.idunico}`, tercero);
+      return this.http.delete(`${this.appSettings.endPointTitan}General_Terceros/${tercero.id}`, tercero);
   }
 
 }

@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Nombre: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.nombre">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Porcentaje: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.porcentaje">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Marca en la hoja: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.marca">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+  </div>
+</div>
+<div class="col-12">
+    <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="onSave()">
+      <i class="fa fa-save"></i>
+      Aceptar
+    </button>
+</div>
+  

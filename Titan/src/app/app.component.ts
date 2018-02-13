@@ -22,6 +22,9 @@ export class AppComponent {
 
   onLogOut ($event) {
     this._storage.eliminar('TITAN-USERDATA');
+    this._storage.eliminar('TITAN-USERDATA');
+    this._storage.eliminar('TITAN_BODEGA');
+    this._storage.eliminar('TITAN_BODEGA');
     this.isLogged = false;
   }
 }

@@ -12,8 +12,8 @@ import {  } from '@angular/core';
 })
 export class TipoDocumentoComponent implements OnInit {
   dataTipoDoc: any = {
-    comportamiento: '', convertir: '', descrip: '', formato_imp: '', id: '', id_bodega: '', n_actual: '', n_final: '', 
-    n_inicial: '', notas: '', prefijo: ''};
+    id: '', idbodega: '', idalmacen: '', num_resolucion: '', fec_resolucion: '', descripcion: '', notas: '', prefijo: '',
+    n_actual: '', n_final: '', n_inicial: ''};
   modalRef: BsModalRef;
   tipoDocumentos: any;
   columns: Array<any> ;
@@ -29,7 +29,7 @@ export class TipoDocumentoComponent implements OnInit {
     this._tipoDocumentoService.getTipoDocumento().subscribe(
       result => {
         this.columns = [
-          {title: 'Nombre', name: 'descrip'},
+          {title: 'Nombre', name: 'descripcion'},
           {title: 'Prefijo', name: 'prefijo'},
           {title: 'Num. Actual', name: 'n_actual'},
           {title: 'Num. Inicial', name: 'n_inicial'},
@@ -47,8 +47,8 @@ export class TipoDocumentoComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
   onCreate() {
-    this.dataTipoDoc = {comportamiento: '', convertir: '', descrip: '', formato_imp: '', idunico: '', id_bodega: '',
-    n_actual: '', n_final: '', n_inicial: '', notas: '', prefijo: ''};
+    this.dataTipoDoc = {id: '', idbodega: '', idalmacen: '', num_resolucion: '', fec_resolucion: '', descripcion: '',
+                        notas: '', prefijo: '', n_actual: '', n_final: '', n_inicial: ''};
   }
 
   onEdit(data: any) {

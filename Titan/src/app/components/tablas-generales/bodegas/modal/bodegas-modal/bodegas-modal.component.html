@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Descripcion: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.descripcion">
+    </div>
+  </div>
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+      Direccion: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.direccion">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 form-group m-t-40">
+    <div class="col-12">
+        Telefono: <input class="form-control col-12" type="text" [(ngModel)]="dataForm.telefono">
+    </div>
+  </div>
+</div>
+<div class="col-12">
+    <button type="button" class="btn waves-effect waves-light btn-success btn-block" (click)="onSave()">
+      <i class="fa fa-save"></i>
+      Aceptar
+    </button>
+</div>

@@ -9,20 +9,20 @@ export class TipoDocumentoService {
   constructor(private appSettings: AppSettings, private http: HttpClient) { }
 
   getTipoDocumento(): Observable<any>  {
-    const retorno = this.http.get(`${this.appSettings.endPointTitan}general_tip_doc/`);
+    const retorno = this.http.get(`${this.appSettings.endPointTitan}General_Documentos/`);
     return retorno;
   }
 
   setTipoDocumento(tipoDoc: any): Observable<any>  {
-    return this.http.post(`${this.appSettings.endPointTitan}general_tip_doc/`, tipoDoc);
+    return this.http.post(`${this.appSettings.endPointTitan}General_Documentos/`, tipoDoc);
  }
 
 
   updateTipoDocumento(tipoDoc: any): Observable<any>  {
-    return this.http.put(`${this.appSettings.endPointTitan}general_tip_doc/${tipoDoc.idunico}`, tipoDoc);
+    return this.http.put(`${this.appSettings.endPointTitan}General_Documentos/${tipoDoc.id}`, tipoDoc);
  }
 
  deleteTipoDocumento(tipoDoc: any): Observable<any>  {
-    return this.http.delete(`${this.appSettings.endPointTitan}general_tip_doc/${tipoDoc.idunico}`);
+    return this.http.delete(`${this.appSettings.endPointTitan}General_Documentos/${tipoDoc.id}`);
   }
 }

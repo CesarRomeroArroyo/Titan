@@ -15,7 +15,6 @@ export class LoginService {
    }
 
    getUserLogged() {
-     debugger;
      console.log(this._storage.obtener('TITAN-USERDATA'));
     return JSON.parse(this._storage.obtener('TITAN-USERDATA'));
    }

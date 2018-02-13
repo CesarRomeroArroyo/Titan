@@ -1,20 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import {
-    AdministracionTercerosService
-} from '../../../../services/terceros/administracion-terceros.service';
+import { ImpuestosService } from '../../../../../services/generales/impuestos.service';
 
 @Component({
-  selector: 'app-modal-vendedores',
-  templateUrl: './modal-vendedores.component.html',
-  styleUrls: ['./modal-vendedores.component.css']
+  selector: 'app-impuestos-modal',
+  templateUrl: './impuestos-modal.component.html',
+  styleUrls: ['./impuestos-modal.component.css']
 })
-export class ModalVendedoresComponent implements OnInit, OnChanges {
+export class ImpuestosModalComponent implements OnInit, OnChanges {
+
   @Input() data;
   @Input() numReg;
   @Output() savedEvent = new EventEmitter<void>();
   private dataForm;
   private tipoCuenta: any;
-  constructor(private _service: AdministracionTercerosService) { }
+  constructor(private _service: ImpuestosService) {
+   }
 
   ngOnInit() {
   }
@@ -24,11 +24,13 @@ export class ModalVendedoresComponent implements OnInit, OnChanges {
   }
 
   onSave() {
-    if (this.dataForm.idunico === '') {
-      const retorno = this._service.setTercero(this.dataForm).subscribe(
+    if (this.dataForm.id === '') {
+      this.dataForm.codigo = this.dataForm.codigo;
+      this.dataForm.cuenta = this.dataForm.cuenta;
+      const retorno = this._service.insertar(this.dataForm).subscribe(
         result => {
-         console.log(result);
-         this.savedEvent.emit();
+          console.log(result);
+          this.savedEvent.emit();
         },
         error => {
             console.log(<any>error);
@@ -36,7 +38,7 @@ export class ModalVendedoresComponent implements OnInit, OnChanges {
       );
       console.log(retorno);
     } else {
-      this._service.updateTercero(this.dataForm).subscribe(
+      this._service.actualizar(this.dataForm).subscribe(
         result => {
          console.log(result);
          this.savedEvent.emit();
@@ -47,6 +49,4 @@ export class ModalVendedoresComponent implements OnInit, OnChanges {
       );
     }
   }
-
-
 }

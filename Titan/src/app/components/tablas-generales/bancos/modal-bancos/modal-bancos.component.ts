@@ -25,21 +25,19 @@ export class ModalBancosComponent implements OnInit, OnChanges {
 
   onSave() {
     if (this.dataForm.idunico === '') {
-      for (let i = 0; i < 1500; i++) {
-        this.dataForm.id = this.dataForm.id + 1;
-        this.dataForm.codigo = parseInt(this.dataForm.codigo , 10) + 1;
-        this.dataForm.cuenta = parseInt(this.dataForm.cuenta , 10) + 1;
-        const retorno = this._service.setBancos(this.dataForm).subscribe(
-          result => {
-           console.log(result);
-           this.savedEvent.emit();
-          },
-          error => {
-              console.log(<any>error);
-          }
-        );
-        console.log(retorno);
-      }
+      this.dataForm.id = this.dataForm.id + 1;
+      this.dataForm.codigo = parseInt(this.dataForm.codigo , 10) + 1;
+      this.dataForm.cuenta = parseInt(this.dataForm.cuenta , 10) + 1;
+      const retorno = this._service.setBancos(this.dataForm).subscribe(
+        result => {
+          console.log(result);
+          this.savedEvent.emit();
+        },
+        error => {
+            console.log(<any>error);
+        }
+      );
+      console.log(retorno);
     } else {
       this._service.updateBancos(this.dataForm).subscribe(
         result => {

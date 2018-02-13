@@ -7,14 +7,12 @@ import { AppSettings } from '../../app.settings';
 
 @Injectable()
 export class PermisosService {
-  userLogged: any;
   constructor(private http: HttpClient, private appSettings: AppSettings, private _loginSerice: LoginService) {
-    this.userLogged = this._loginSerice.getUserLogged();
   }
 
   buscarPerfilUsuario(): Observable<any> {
-    debugger;
-    return this.http.get(`${this.appSettings.endPointCore}General_Perfil_Usuario/?id=${this.userLogged.id}`);
+    const userLogged = this._loginSerice.getUserLogged();
+    return this.http.get(`${this.appSettings.endPointCore}General_Perfil_Usuario/?id=${userLogged.id}`);
   }
 
   buscarPerfilUsuarioCodigo(id: any): Observable<any> {
